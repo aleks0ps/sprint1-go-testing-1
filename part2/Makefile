@@ -11,6 +11,11 @@ go.mod:
 build: go.mod
 	go build ./
 
+.PHONY: test
+test:
+	go get github.com/stretchr/testify/assert
+	go test
+
 .PHONY: clean
 clean:
 	find ./ -mindepth 1 -maxdepth 1 -executable -delete

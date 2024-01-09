@@ -10,6 +10,10 @@ go.mod:
 .PHONY: build
 build: go.mod
 	go build ./
+.PHONY: test
+test:
+	go get github.com/stretchr/testify/assert
+	go test
 
 .PHONY: clean
 clean:

@@ -1,6 +1,10 @@
 package main
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/stretchr/testify/assert"
+)
 
 func TestAddNew(t *testing.T) {
 	family := Family{}
@@ -31,9 +35,7 @@ func TestAddNew(t *testing.T) {
 
 	for _, test := range two_fathers {
 		t.Run(test.name, func(t *testing.T) {
-			if err := family.AddNew(test.rel, test.person); err != nil {
-				t.Errorf("%v", ErrRelationshipAlreadyExists)
-			}
+			assert.NoError(t, family.AddNew(test.rel, test.person))
 		})
 	}
 }
